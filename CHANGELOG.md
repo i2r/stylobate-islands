@@ -2,6 +2,12 @@
 # Stylobate-islands Changelog
 ---
 
+## v1.0.0 (in development)
+
+**A lot** of changes, most would break your code, sorry. It caused by major Stylobate rethinking, refactoring and also redesign.
+
+- `button` changed a lot.
+
 ## v0.14.1 (2013-09-19)
 
 - Updated Stylobate dep.
