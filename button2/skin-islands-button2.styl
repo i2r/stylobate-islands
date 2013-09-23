@@ -15,8 +15,7 @@ skin-islands-button2-prototype()
     '_size_m',
     '_hover' '&:hover',
     '_active' '&:active',
-    '_focus' '&:focus',
-    'focus-helper' '&:before')
+    '_focus' '&:focus')
 
 // how to express those sizes in vars?
 skin-islands-button2-prototype_size_s()
@@ -41,15 +40,15 @@ skin-islands-button2-prototype_focus()
   border-color: rgba(178,142,0,.6);
   outline: none
 
-  {parent_get(arguments, 'focus-helper')}
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: inherit;
-    box-shadow: 0 0 10px #FC0;
+  {parent_get(arguments, 'focus-helper', '&:before')}
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    border-radius: inherit
+    box-shadow: 0 0 10px #FC0
 
 // Common checked state
 $islands-button2-bg_checked = #FFEBA0

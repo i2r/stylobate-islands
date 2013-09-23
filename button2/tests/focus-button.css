@@ -1,0 +1,67 @@
+.focus-button2 {
+  margin: 0;
+
+  background: transparent;
+  -moz-appearance: none;
+}
+
+.focus-button2::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+.focus-button2 {
+  position: relative;
+
+  display: inline-block;
+
+  padding: 0 12px;
+  border: 1px solid;
+  border-color: rgba(0,0,0,0.2);
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-decoration: none;
+
+  font: 1.5rem/2.2rem Arial, sans-serif;
+  line-height: 26px;
+
+  color: #000;
+
+  box-shadow: inset 0 90px #FFF;
+
+  border-radius: 3px;
+}
+
+.focus-button2:hover {
+  border-color: rgba(0,0,0,0.4);
+}
+
+.focus-button2:active {
+  box-shadow: inset 0 90px #F6F5F3;
+}
+
+.focus-button2.test-focus {
+  border-color: rgba(178,142,0,0.6);
+
+  outline: none;
+}
+
+.focus-button2.test-focus:after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  box-shadow: 0 0 10px #FC0;
+
+  border-radius: inherit;
+}
