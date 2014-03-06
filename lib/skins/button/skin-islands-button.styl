@@ -9,12 +9,8 @@ $skin-islands-button-content ?= '.button-content'
 skin-islands-proto-button()
   skin-islands-check-font()
 
-  // unless only in arguments
   position: relative
-
-  $align = utilus_retrieve(arguments, middle top bottom, baseline)
-  $align = middle if ie and $align == baseline
-  vertical-align: $align
+  vertical-align: ie ? middle : baseline
   user-select: none
 
   if one-element in arguments and !ie
@@ -86,6 +82,10 @@ skin-islands-proto-button()
     input[type=file]:focus + &,
     &:focus
       skin-islands-button_focus(arguments)
+
+  // deprecating things
+  if middle in arguments or top in arguments or bottom in arguments
+    error("islands-button at `" + selector() + "`: Use regular `vertical-align` in CSS instead of `top`/`bottom`/`middle` params")
 
 
 // Normal button
