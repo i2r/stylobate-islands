@@ -28,8 +28,8 @@
 .search-arrow:before {
   content: "";
 
-  width: 2.969848481766999rem;
-  height: 2.969848481766999rem;
+  width: 2.9698rem;
+  height: 2.9698rem;
 
   -webkit-transform: translate(-50%, -50%) scale(0.5, 1) rotate(-135deg) translateZ(0);
 

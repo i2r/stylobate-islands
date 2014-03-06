@@ -11,49 +11,60 @@ skin-islands-arrow()
 
   margin-right: round(($height / 2) * tan(30deg), 3)
 
-  unless _search in arguments
+  stylobate_defaults(arguments,
+    _theme _service)
+
+  unless ie
+    stylobate_defaults(arguments,
+      __helper '&:before')
+
+  // deprecating things
+  if get(arguments, -helper) in arguments
+    error("islands-arrow at `" + selector() + "`: Replace `-helper` element with a call of `__helper` element")
+
+  if tail in arguments
+    error("islands-arrow at `" + selector() + "`: Replace `tail` param with a call of `__helper` element")
+
+  if no-elements in arguments
+    error("islands-arrow at `" + selector() + "`: Replace `no-elements` param with empty elements like `(__helper '')`")
+
+  if search in arguments
+    error("islands-arrow at `" + selector() + "`: Replace `search` param with `(_theme _search)` modifier")
+
+skin-islands-arrow_theme()
+  if _search in arguments
+    padding: ($islands_xs - 0.1*rem) ($islands_m - 0.2*rem) ($islands_xs - 0.1*rem) ($islands_xs - 0.1*rem)
+    font-size: 1em
+    line-height: 1
+
+  if _service in arguments
+    $height = alike(arguments, parent_alike(arguments, $skin-islands-arrow-height))
+
     padding: ($islands_xs + 0.2*rem) ($islands_m - 0.1*rem)
     font-size: 1.8*rem
     line-height: $height - (2*$islands_xs + 0.4*rem)
 
-  unless ie
-    stylobate_defaults(arguments,
-      -helper '&:before')
-
-  // deprecating things
-  if tail in arguments
-    error("islands-arrow at `" + selector() + "`: Replace `tail` param with a call of `-helper` element")
-
-  if no-elements in arguments
-    error("islands-arrow at `" + selector() + "`: Replace `no-elements` param with empty elements like `(-helper '')`")
-
-skin-islands-arrow_search()
-  padding: ($islands_xs - 0.1*rem) ($islands_m - 0.2*rem) ($islands_xs - 0.1*rem) ($islands_xs - 0.1*rem)
-  font-size: 1em
-  line-height: 1
-
-skin-islands-arrow-helper()
+skin-islands-arrow__helper()
   pseudo-with-content()
+
+  @extends $skin-islands-arrow__helper
 
   $height = alike(arguments, parent_alike(arguments, $skin-islands-arrow-height))
   $color = alike(arguments, parent_alike(arguments, $skin-islands-arrow-color))
-
-  @extends $skin-islands-arrow-helper
 
   if ie
     border-color: transparent $color
     border-width: ($height / 2) 0 ($height / 2) (round(($height / 2) * tan(30deg), 3))
   else
-    $sqrt2 = 1.414213562
-    width: $height * (1/$sqrt2)
-    height: $height * (1/$sqrt2)
+    width: round($height * (1 / math(2, 'sqrt')), 4)
+    height: round($height * (1 / math(2, 'sqrt')), 4)
 
     background: linear-gradient(45deg, $color 50%,transparent 50%)
 
     if alpha($color) == 1
       -webkit-transform: translate(-50%,-50%) scale(0.5,1) rotate(-135deg) translateZ(0)
 
-$skin-islands-arrow-helper
+$skin-islands-arrow__helper
   position: absolute
   left: 100%
 
