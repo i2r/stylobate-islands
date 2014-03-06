@@ -5,26 +5,32 @@ skin-islands-arrow()
   $height = alike(arguments, $skin-islands-arrow-height)
   $color = alike(arguments, $skin-islands-arrow-color)
 
+  white-space: nowrap
+
+  background: $color
+
+  margin-right: round(($height / 2) * tan(30deg), 3)
+
+  unless _search in arguments
+    padding: ($islands_xs + 0.2*rem) ($islands_m - 0.1*rem)
+    font-size: 1.8*rem
+    line-height: $height - (2*$islands_xs + 0.4*rem)
+
+  unless ie
+    stylobate_defaults(arguments,
+      -helper '&:before')
+
+  // deprecating things
   if tail in arguments
-    skin-islands-arrow-helper(arguments)
-  else
-    if search in arguments
-      padding: ($islands_xs - 0.1*rem) ($islands_m - 0.2*rem) ($islands_xs - 0.1*rem) ($islands_xs - 0.1*rem)
-    else
-      padding: ($islands_xs + 0.2*rem) ($islands_m - 0.1*rem)
-      font-size: 1.8*rem
-      line-height: $height - (2*$islands_xs + 0.4*rem)
+    error("islands-arrow at `" + selector() + "`: Replace `tail` param with a call of `-helper` element")
 
-    background: $color
-    white-space: nowrap
+  if no-elements in arguments
+    error("islands-arrow at `" + selector() + "`: Replace `no-elements` param with empty elements like `(-helper '')`")
 
-    margin-right: round(($height / 2) * tan(30deg), 3)
-
-    unless ie or (no-elements in arguments)
-      stylobate_defaults(arguments,
-        -helper '&:before')
-
-    deprecate(arguments, no-elements)
+skin-islands-arrow_search()
+  padding: ($islands_xs - 0.1*rem) ($islands_m - 0.2*rem) ($islands_xs - 0.1*rem) ($islands_xs - 0.1*rem)
+  font-size: 1em
+  line-height: 1
 
 skin-islands-arrow-helper()
   pseudo-with-content()
