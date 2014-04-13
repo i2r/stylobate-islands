@@ -25,7 +25,7 @@
   font-size: 1.5rem;
   line-height: 2.2rem;
 
-  color: #333;
+  color: #000;
 
   background: rgba(0, 0, 0, 0.3);
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
@@ -108,8 +108,8 @@ input:not(:checked) + .normal-checkbox > .checkbox-icon {
 .small-radio {
   position: relative;
 
-  width: 1.4000000000000001rem;
-  height: 1.4000000000000001rem;
+  width: 1.4rem;
+  height: 1.4rem;
   margin-right: 0.6rem;
 
   -webkit-user-select: none;
@@ -123,7 +123,7 @@ input:not(:checked) + .normal-checkbox > .checkbox-icon {
   font-size: 1.5rem;
   line-height: 2.2rem;
 
-  color: #333;
+  color: #000;
 
   background: rgba(0, 0, 0, 0.3);
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
