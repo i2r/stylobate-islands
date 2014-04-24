@@ -2,6 +2,10 @@
 # Stylobate-islands Changelog
 ---
 
+## v0.27.0 (2014-04-24)
+
+- Applied latest Stylobate, some API changes, caching and other stuff.
+
 ## v0.26.0 (2014-04-10)
 
 - Added a way to configure border-alpha of pseudo-buttons.
